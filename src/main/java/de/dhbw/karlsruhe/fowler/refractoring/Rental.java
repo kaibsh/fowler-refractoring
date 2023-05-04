@@ -1,16 +1,28 @@
 package de.dhbw.karlsruhe.fowler.refractoring;
 
 class Rental {
-    private Movie movie;
-    private int daysRented;
-    public Rental(Movie newmovie, int newdaysRented) {
-        movie = newmovie;
-        daysRented = newdaysRented;
+
+    private final Movie movie;
+    private final int daysRented;
+
+    public Rental(final Movie movie, final int daysRented) {
+        this.movie = movie;
+        this.daysRented = daysRented;
     }
-    public int getDaysRented() {
-        return daysRented;
-    }
+
     public Movie getMovie() {
-        return movie;
+        return this.movie;
+    }
+
+    public int getDaysRented() {
+        return this.daysRented;
+    }
+
+    public double getCharge() {
+        return this.movie.getCharge(this.daysRented);
+    }
+
+    public int getFrequentRenterPoints() {
+        return this.movie.getFrequentRenterPoints(this.daysRented);
     }
 }
